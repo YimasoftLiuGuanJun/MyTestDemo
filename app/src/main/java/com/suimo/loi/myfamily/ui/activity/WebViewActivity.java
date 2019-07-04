@@ -1,0 +1,179 @@
+package com.suimo.loi.myfamily.ui.activity;
+
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.webkit.WebView;
+import android.widget.ProgressBar;
+
+
+import com.suimo.loi.myfamily.GankConfig;
+import com.suimo.loi.myfamily.R;
+import com.suimo.loi.myfamily.base.ToolBarActivity;
+import com.suimo.loi.myfamily.mvp.model.entity.Gank;
+import com.suimo.loi.myfamily.mvp.presenter.WebViewPresenter;
+import com.suimo.loi.myfamily.mvp.view.IWebView;
+import com.suimo.loi.myfamily.utils.ShareUtil;
+import com.suimo.loi.myfamily.utils.SnackBarUtil;
+
+import butterknife.BindView;
+
+
+/**
+ * Created by bob on 17-5-11.
+ */
+
+public class WebViewActivity extends ToolBarActivity<WebViewPresenter> implements IWebView {
+
+        private Gank gank;
+        private String url;
+        WebViewPresenter presenter;
+
+        @BindView(R.id.toolbar)
+        Toolbar toolbar;
+        @BindView(R.id.web_view)
+        WebView webView;
+        @BindView(R.id.progressBar)
+        ProgressBar progressBar;
+
+        @Override
+        public void onCreate( Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+        }
+
+        @Override
+        public void init() {
+                if (getIntent().getSerializableExtra(GankConfig.GANK) != null) {
+                        gank = (Gank) getIntent().getSerializableExtra(GankConfig.GANK);
+                        setTitle(gank.desc);
+                        presenter.setWebViewSettings(webView, gank.url);
+                } else {
+                        url = getIntent().getStringExtra(GankConfig.URL);
+                        setTitle(url);
+                        presenter.setWebViewSettings(webView,url);
+                }
+        }
+
+        @Override
+        protected void initToolBar() {
+                super.initToolBar();
+                actionBar = getSupportActionBar();
+                if (actionBar != null) {
+                        actionBar.setDisplayHomeAsUpEnabled(canBack());
+                }
+        }
+
+        @Override
+        public boolean onKeyDown(int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                        switch (keyCode) {
+                                case KeyEvent.KEYCODE_BACK:
+                                        if (webView.canGoBack()) {
+                                                webView.goBack();
+                                        } else {
+                                                finish();
+                                        }
+                                        return true;
+                        }
+                }
+                return super.onKeyDown(keyCode, event);
+        }
+
+
+
+        @Override
+        public void showProgress(int progress) {
+                if (progressBar == null) {
+                        return;
+                }
+                if (progress == 100) {
+                        progressBar.setVisibility(View.GONE);
+                } else {
+                        progressBar.setVisibility(View.VISIBLE);
+                        progressBar.setProgress(progress);
+                }
+
+        }
+
+        @Override
+        public void setWebTitle(String title) {
+                setTitle(title);
+        }
+
+        @Override
+        public void openFailed() {
+                SnackBarUtil.showTipWithoutAction(webView,getString(R.string.open_url_failed));
+
+        }
+
+        @Override
+        protected int provideContentViewId() {
+                return R.layout.activity_web;
+        }
+
+        @Override
+        protected void initPresenter() {
+                presenter = new WebViewPresenter(this, this);
+                presenter.init();
+        }
+
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+                getMenuInflater().inflate(R.menu.webview_menu,menu);
+                return true;
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+                switch (item.getItemId()) {
+                        case R.id.action_refresh:
+                                presenter.refresh(webView);
+                                break;
+                        case R.id.action_copy_url:
+                                presenter.copyUrl(webView, webView.getUrl());
+                                break;
+                        case R.id.action_open_in_browser:
+                                presenter.openInBrowser(webView.getUrl());
+                                break;
+                        case R.id.action_share_url:
+                                if (gank != null) {
+                                        presenter.shareGank(gank);
+                                        break;
+                                } else {
+                                        ShareUtil.shareURL(this, url);
+                                }
+                }
+                return super.onOptionsItemSelected(item);
+        }
+
+        @Override
+        protected void onResume() {
+                if (webView != null) {
+                        webView.onResume();
+                }
+                super.onResume();
+        }
+
+        @Override
+        protected void onPause() {
+                if (webView != null) {
+                        webView.onPause();
+                }
+                super.onPause();
+        }
+
+        @Override
+        protected void onDestroy() {
+                super.onDestroy();
+                if (webView != null) {
+                        webView.removeView(webView);
+                        webView.removeAllViews();
+                        webView.destroy();
+                        webView = null;
+                }
+                presenter.release();
+        }
+}

@@ -1,0 +1,104 @@
+<resources>
+    <string name="app_name">MyFamily</string>
+    <string name="title_activity_login">噎屎啦你</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">用户名</string>
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in">登陆</string>
+    <string name="action_register_in_in">注册</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_password">密码太短</string>
+    <string name="error_incorrect_password">密码错误</string>
+    <string name="error_field_required">这里需要填写</string>
+    <string name="permission_rationale">"需要联系人权限"</string>
+
+
+
+    <string name="app_name">干货集中营</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="save_girl_successfully">您已成功将妹子的图片保存在您的图库了！</string>
+    <string name="save_girl_failly">对不起，妹子的图片不能存进您的图库中</string>
+    <string name="share_girl_to">把妹子分享到</string>
+    <string name="market">market://details?id=%s</string>
+    <string name="action_settings">设置</string>
+    <string name="about">关于</string>
+    <string name="load_fail">加载失败</string>
+    <string name="retry">重试</string>
+    <string name="load_finished">加载完毕</string>
+    <string name="girl">girl</string>
+    <string name="daily_activity">每日一图</string>
+    <string name="meizi_save">保存</string>
+    <string name="menu_share">分享</string>
+    <string name="save_meizi_error">sorry，你并不能保存这个可爱的妹子==</string>
+    <string name="network_unavaliable">网络不可用，请设置网络</string>
+    <string name="wifi_unavaliable">您使用的不是wifi网络哦，要继续吗？</string>
+    <string name="wifi_continue">继续</string>
+    <string name="error_happened">出了点问题</string>
+    <string name="copy_successed">复制成功</string>
+    <string name="share_gank_to">想把干货分享到</string>
+    <string name="open_url_failed">打开网页失败了</string>
+    <string name="action_refresh">刷新</string>
+    <string name="action_copy_url">复制地址</string>
+    <string name="action_open_in_browser">用浏览器打开</string>
+    <string name="action_share_url">分享</string>
+
+    <!--关于界面-->
+    <string name="app_version">版本:V1.0.0</string>
+    <string name="star">为干货集中营客户端评分</string>
+    <string name="star_desc">如果你喜欢这个应用，请您在商店中给他一个好评吧==</string>
+    <string name="author">作者</string>
+    <string name="author_name">温斯渤</string>
+    <string name="author_place">广东,广州,宇宙工业大学</string>
+    <string name="go_to_my_blog">去我的个人博客</string>
+    <string name="blog_url">http://wensibo.net</string>
+    <string name="share_blog_url">请访问我的博客：http://wensibo.net</string>
+    <string name="follow_me_on_github">请您在Github中关注我</string>
+    <string name="share_follow_me_on_github">请关注我的Github：https://github.com/wensibob</string>
+    <string name="github_url">https://github.com/wensibob</string>
+    <string name="contact_with_me">与我联系</string>
+    <string name="email">wensibob@gmail.com</string>
+    <string name="support">支持</string>
+    <string name="feedback">反馈Bug/建议</string>
+    <string name="feedback_desc">帮助我改进干货集中营客户端</string>
+    <string name="coffee">请我喝杯咖啡</string>
+    <string name="coffee_desc">如果你认同我的工作，可以请我喝杯咖啡</string>
+    <string name="thanks">感谢</string>
+    <string name="daimajia">代码家</string>
+    <string name="daimajia_url">http://gank.io</string>
+    <string name="share_daimajia_url">请关注代码家：http://gank.io</string>
+    <string name="Gank.lu">Gank.lu</string>
+    <string name="Gank.lu_url">https://github.com/Panl/Gank.lu</string>
+    <string name="share_Gank.lu_url">请关注Gank.lu：https://github.com/Panl/Gank.lu</string>
+    <string name="open_source_license">开源协议</string>
+    <string name="open_source_name">
+        compile \'com.android.support:cardview-v7:25.3.1\'\n
+        compile \'com.android.support:preference-v14:25.1.1\'\n
+        compile \'com.android.support:customtabs:25.1.1\'\n
+        compile \'io.reactivex.rxjava2:rxjava:2.1.0\'\n
+        compile \'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0\'\n
+        compile \'com.squareup.retrofit2:retrofit:2.2.0\'\n
+        compile \'com.github.bumptech.glide:glide:3.7.0\'\n
+        compile \'com.commit451:PhotoView:1.2.4\'\n
+        compile \'com.jakewharton:butterknife:7.0.1\'\n
+        compile \'com.yalantis:phoenix:1.2.3\'
+    </string>
+
+    <string name="no_app_store">您没有安装应用市场</string>
+    <string name="no_email">您没有安装邮箱应用</string>
+    <string name="share_url_to">把链接分享到</string>
+    <string name="sendto">mailto:wensibob@gmail.com</string>
+    <string name="mail_topic_feedback">干货集中营客户端使用反馈与建议</string>
+    <string name="mail_topic">干货集中营客户端</string>
+    <string name="device_model">设备型号:</string>
+    <string name="sdk_version">Android版本</string>
+    <string name="donate_content">支付宝账号将会复制到粘贴板，进入支付宝可直接粘贴完成捐赠，感谢您的支持！</string>
+    <string name="positive">确定</string>
+    <string name="negative">取消</string>
+    <string name="alipay_account">wensibob@gmail.com</string>
+    <string name="license">开源协议</string>
+    <string name="no_chrome_info">如果您想获得极致的网页体验，请安装谷歌浏览器并设置其为默认浏览器</string>
+    <string name="comfirm">我明白啦！</string>
+</resources>
