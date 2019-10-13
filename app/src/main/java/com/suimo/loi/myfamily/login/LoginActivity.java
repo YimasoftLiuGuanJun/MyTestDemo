@@ -47,6 +47,8 @@ import com.suimo.loi.myfamily.R;
 import com.suimo.loi.myfamily.login.Model.UserBean;
 import com.suimo.loi.myfamily.login.Presenter.LoginPresenter;
 import com.suimo.loi.myfamily.login.View.ILoginView;
+import com.suimo.loi.myfamily.test.Test_AC;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -86,6 +88,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private Button button;
     private String TAG = "LoginActivity";
     LoginPresenter loginPresenter;
 
@@ -108,6 +111,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
         });
+
+        Test_AC.A a = new Test_AC.A();
+        a.T4();
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
@@ -328,6 +334,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     public void onError() {
         Toast.makeText(this,"该用户不存在",Toast.LENGTH_SHORT).show();
         showProgress(false);
+    }
+
+    public void startRxJavaTestAc(View view) {
+        startActivity(new Intent(this, Test_AC.class));
     }
 
     private interface ProfileQuery {

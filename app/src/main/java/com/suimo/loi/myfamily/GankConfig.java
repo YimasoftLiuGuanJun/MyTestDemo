@@ -15,5 +15,4 @@ public class GankConfig {
         public static final String TRANSLATE_GIRL_VIEW = "share_girl";
         public static final String HOST = "http://gank.io/api/";
         public static final String CHROME = "chrome";
-
 }

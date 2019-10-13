@@ -5,7 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.bob.gank_client.mvp.presenter.BasePresenter;
+
+import com.suimo.loi.myfamily.mvp.presenter.BasePresenter;
 
 import butterknife.ButterKnife;
 

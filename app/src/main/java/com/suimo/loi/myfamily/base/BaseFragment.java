@@ -6,7 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bob.gank_client.mvp.presenter.BasePresenter;
+
+import com.suimo.loi.myfamily.mvp.presenter.BasePresenter;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
